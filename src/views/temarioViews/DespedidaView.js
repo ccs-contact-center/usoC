@@ -18,6 +18,7 @@ class PresentacionView extends Component {
           <Row>
             <Col xs="12" sm="12" md="12" className="centrado-fila mt-3">
               <div>
+                <h1>Video pendiente...</h1>
                 <ReactPlayer
                   className="animated bounceInRight delay-5s"
                   width="100%"
