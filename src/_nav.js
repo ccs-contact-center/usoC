@@ -6,44 +6,34 @@ export default {
       class: 'text-center',
     },
     {
-      name: '¿QUÉ ES ETIQUETA TELEFONICA ?',
+      name: 'Reglas ortográficas de la C',
       icon: 'icon-tag',
      
     },
 
+   
     {
-      name: 'ESTRUCTURA DE LA LLAMADA',
-      icon: 'icon-tag',
-      
-    },
-
-    {
-      name: 'HABILIDADES NECESARIAS',
-      icon: 'icon-tag',
-     
+      name: 'Evaluación 1',
+      icon: 'icon-puzzle',
+    
     },
     {
-      name: 'EVALUACIÓN 1',
+      name: 'Evaluación 2',
       icon: 'icon-puzzle',
     
     },
 
     {
-      name: 'HABILIDADES TECNICAS',
+      name: 'Conclusión',
       icon: 'icon-tag',
       
     },
 
-  
-
     {
-      name: 'EVALUACIÓN 2',
-      icon: 'icon-puzzle',
-    
-    },
-    {
-      name: 'DESPEDIDA',
+      name: 'Despedida',
       icon: 'icon-tag',
+      
     },
+
   ],
 }
