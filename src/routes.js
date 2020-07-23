@@ -7,7 +7,7 @@ const TemaUnoView = React.lazy(() => import('./views/temarioViews/TemaUnoView'))
 const TemaDosView = React.lazy(() => import('./views/temarioViews/TemaDosView'));
 const TemaTresView = React.lazy(() => import('./views/temarioViews/TemaTresView'));
 const TemaCuatroView = React.lazy(() => import('./views/temarioViews/TemaCuatroView'));
-const Actividad1View = React.lazy(() => import('./views/temarioViews/Actividad1View'));
+
 const Actividad2View = React.lazy(() => import('./views/temarioViews/Actividad2View'));
 
 
