@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import {
   CardBody,
   CardHeader,
@@ -9,45 +9,51 @@ import {
   FormGroup,
   Label,
   Input,
-} from 'reactstrap'
-import actividad1 from '../../assets/img/usoC/actividad1.png'
-
-import API_CCS from '../../services/API_CCS'
-const API = new API_CCS()
+} from "reactstrap";
+import actividad1 from "../../assets/img/usoC/actividad1.png";
+//importamos el AuthService para poder traernos el perfil de usuario
+import AuthService from "../../services/AuthService";
+import API_CCS from "../../services/API_CCS";
+const API = new API_CCS();
 
 class ActividadView extends Component {
   loading = () => (
     <div className="animated fadeIn pt-1 text-center">Cargando...</div>
-  )
+  );
 
   constructor(state) {
-    super(state)
+    super(state);
+    //instanciamos el Authservice
+    this.Auth = new AuthService();
     this.state = {
-      Cosina: '',
-      Cacerola: '',
-      Abesedario: '',
-      Bronseado: '',
-      Funcionario: '',
-      Diferencias: '',
-      Canselar: '',
-      Desición: '',
-      Conferencia: '',
-    }
+      Cosina: "",
+      Cacerola: "",
+      Abesedario: "",
+      Bronseado: "",
+      Funcionario: "",
+      Diferencias: "",
+      Canselar: "",
+      Desición: "",
+      Conferencia: "",
+      //asignamos un state con el id_ccs
+      id_ccs: this.Auth.getProfile().id_ccs,
+      //asignamos un state con el nombre del form
+      form: "usoC",
+    };
   }
 
   onChange(e) {
     this.setState({
       [e.target.name]: e.target.checked,
-    })
+    });
   }
 
   async onSave(e) {
     try {
-      var respuesta = await API.actividad1(this.state)
-      alert('Se guardo la actividad, con id: ' + respuesta[0].id)
-
+      var respuesta = await API.actividad1(this.state);
+      alert("Se guardo la actividad, con id: " + respuesta[0].id);
     } catch (err) {
-      console.log('loggea si hay un error')
+      console.log("loggea si hay un error");
     }
   }
 
@@ -73,7 +79,7 @@ class ActividadView extends Component {
                       <Form>
                         <div
                           className="cajaA2 centrado-fila"
-                          style={{ backgroundColor: '#d5d4d8' }}
+                          style={{ backgroundColor: "#d5d4d8" }}
                         >
                           <img
                             src={actividad1}
@@ -83,7 +89,7 @@ class ActividadView extends Component {
                           />
                           <FormGroup
                             tag="fieldset"
-                            style={{ marginBottom: '0px' }}
+                            style={{ marginBottom: "0px" }}
                           >
                             <FormGroup check>
                               <div className="centrado-fila">
@@ -96,7 +102,7 @@ class ActividadView extends Component {
                                       name="Cosina"
                                       id="Cosina"
                                       onChange={this.onChange.bind(this)}
-                                      style={{ marginTop: '-12px' }}
+                                      style={{ marginTop: "-12px" }}
                                     />
                                   </Label>
                                 </div>
@@ -113,7 +119,7 @@ class ActividadView extends Component {
                                       name="Cacerola"
                                       id="Cacerola"
                                       onChange={this.onChange.bind(this)}
-                                      style={{ marginTop: '-12px' }}
+                                      style={{ marginTop: "-12px" }}
                                     />
                                   </Label>
                                 </div>
@@ -130,7 +136,7 @@ class ActividadView extends Component {
                                       name="Abesedario"
                                       id="Abesedario"
                                       onChange={this.onChange.bind(this)}
-                                      style={{ marginTop: '-12px' }}
+                                      style={{ marginTop: "-12px" }}
                                     />
                                   </Label>
                                 </div>
@@ -147,7 +153,7 @@ class ActividadView extends Component {
                                       name="Bronseado"
                                       id="Bronseado"
                                       onChange={this.onChange.bind(this)}
-                                      style={{ marginTop: '-12px' }}
+                                      style={{ marginTop: "-12px" }}
                                     />
                                   </Label>
                                 </div>
@@ -164,7 +170,7 @@ class ActividadView extends Component {
                                       name="Funcionario"
                                       id="Funcionario"
                                       onChange={this.onChange.bind(this)}
-                                      style={{ marginTop: '-12px' }}
+                                      style={{ marginTop: "-12px" }}
                                     />
                                   </Label>
                                 </div>
@@ -181,7 +187,7 @@ class ActividadView extends Component {
                                       name="Diferencias"
                                       id="Diferencias"
                                       onChange={this.onChange.bind(this)}
-                                      style={{ marginTop: '-12px' }}
+                                      style={{ marginTop: "-12px" }}
                                     />
                                   </Label>
                                 </div>
@@ -198,7 +204,7 @@ class ActividadView extends Component {
                                       name="Canselar"
                                       id="Canselar"
                                       onChange={this.onChange.bind(this)}
-                                      style={{ marginTop: '-12px' }}
+                                      style={{ marginTop: "-12px" }}
                                     />
                                   </Label>
                                 </div>
@@ -215,7 +221,7 @@ class ActividadView extends Component {
                                       name="Desición"
                                       id="Desición"
                                       onChange={this.onChange.bind(this)}
-                                      style={{ marginTop: '-12px' }}
+                                      style={{ marginTop: "-12px" }}
                                     />
                                   </Label>
                                 </div>
@@ -233,7 +239,7 @@ class ActividadView extends Component {
                                       name="Conferencia"
                                       id="Conferencia"
                                       onChange={this.onChange.bind(this)}
-                                      style={{ marginTop: '-12px' }}
+                                      style={{ marginTop: "-12px" }}
                                     />
                                   </Label>
                                 </div>
@@ -243,9 +249,11 @@ class ActividadView extends Component {
                         </div>
                         <div className="centrado-fila mt-3">
                           <Button
-                           color="primary"
-                           onClick={this.onSave.bind(this)}
-                           >Enviar</Button>
+                            color="primary"
+                            onClick={this.onSave.bind(this)}
+                          >
+                            Enviar
+                          </Button>
                         </div>
                       </Form>
                     </Col>
@@ -257,7 +265,7 @@ class ActividadView extends Component {
           </Col>
         </Row>
       </div>
-    )
+    );
   }
 }
-export default ActividadView
+export default ActividadView;
