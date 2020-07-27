@@ -1,8 +1,8 @@
 import AuthService from "./AuthService";
 
 //Estas son las lineas que debes switchear cuando estes haciendo tus pruebas
-//const hostURL = "https://api.ccscontactcenter.com";
-const hostURL = 'http://localhost:8082'
+const hostURL = "https://api.ccscontactcenter.com";
+//const hostURL = 'http://localhost:8082'
 
 export default class API_CCS {
   constructor() {
