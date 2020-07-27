@@ -56,8 +56,8 @@ export default class API_CCS {
     });
   }
 
-  actividad1(data){
-    return this.fetch(hostURL + "/v1/capacitacion/Actividad1C", {
+  actividad(data){
+    return this.fetch(hostURL + "/v1/capacitacion/Actividades", {
       method: "POST",
        body: JSON.stringify(data),
     }).then(res => {
