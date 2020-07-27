@@ -56,7 +56,7 @@ export default class API_CCS {
     });
   }
 
-  actividad(data){
+  guardaActividad(data){
     return this.fetch(hostURL + "/v1/capacitacion/Actividades", {
       method: "POST",
        body: JSON.stringify(data),
