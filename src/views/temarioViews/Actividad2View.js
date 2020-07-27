@@ -11,6 +11,7 @@ import {
   Input,
 } from 'reactstrap'
 import actividad2 from '../../assets/img/usoC/actividad2.png'
+import AuthService from "../../services/AuthService";
 import API_CCS from '../../services/API_CCS'
 const API = new API_CCS()
 
@@ -21,7 +22,9 @@ class ActividadView extends Component {
 
   constructor(props) {
     super(props)
+    this.Auth = new AuthService();
     this.state = {
+     
       cir1: '',
       cir2: '',
       cir3: '',
@@ -34,6 +37,8 @@ class ActividadView extends Component {
       ancio1: '',
       ancio2: '',
       ancio3: '',
+      id_ccs: this.Auth.getProfile().id_ccs,
+      form: "usoC",
     }
   }
 
@@ -45,7 +50,7 @@ class ActividadView extends Component {
 
   async onSave(e) {
     try {
-      var respuesta = await API.actividad2(this.state)
+      var respuesta = await API.guardaActividad(this.state)
       alert('Se guardo la actividad, con id: ' + respuesta[0].id)
 
     } catch (err) {
